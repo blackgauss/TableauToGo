@@ -94,18 +94,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updatePartitionDisplay() {
-        const rows = document.querySelectorAll('.row');
+        const rows = Array.from(document.querySelectorAll('.row'));
         let partition = [];
 
-        rows.forEach((row) => {
+        let leftMostColumn = null;
+
+        for (let row of rows) {
             let count = 0;
-            row.querySelectorAll('.box.filled').forEach(() => {
-                count++;
-            });
+            let firstFilled = null;
+
+            for (let colIndex = 0; colIndex < row.children.length; colIndex++) {
+                const box = row.children[colIndex];
+                if (box.classList.contains('filled')) {
+                    if (firstFilled === null) {
+                        firstFilled = colIndex;
+                    }
+                    count++;
+                }
+            }
+
             if (count > 0) {
                 partition.push(count);
+                if (leftMostColumn === null) {
+                    leftMostColumn = firstFilled;
+                } else if (leftMostColumn !== firstFilled) {
+                    partitionDisplay.innerHTML = '<h3>Partition:</h3>Invalid Partition';
+                    return;
+                }
             }
-        });
+        }
 
         if (isValidPartition(partition)) {
             partitionDisplay.innerHTML = '<h3>Partition:</h3>' + partition.join(' + ');
