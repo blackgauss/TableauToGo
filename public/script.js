@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const colorPicker = document.getElementById('color-picker');
 
     let currentColor = 'blue';
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     clearButton.addEventListener('click', clearFerrersDiagram);
     togglePartitionButton.addEventListener('click', togglePartitionDisplay);
@@ -27,8 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let colIndex = 0; colIndex < cols; colIndex++) {
                 const box = document.createElement('div');
                 box.classList.add('box');
-                box.addEventListener('click', () => handleBoxClick(box, rowIndex, colIndex));
-                box.addEventListener('touchstart', () => handleBoxClick(box, rowIndex, colIndex));
+                if (isTouchDevice) {
+                    box.addEventListener('touchstart', (event) => {
+                        event.preventDefault();
+                        handleBoxClick(box, rowIndex, colIndex);
+                    });
+                } else {
+                    box.addEventListener('click', () => handleBoxClick(box, rowIndex, colIndex));
+                }
                 row.appendChild(box);
             }
             ferrersDiagram.appendChild(row);
