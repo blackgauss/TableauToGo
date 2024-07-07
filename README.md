@@ -1,3 +1,5 @@
+
+ [TableauToGo](https://blackgalois.com)
 # Tableau-to-Go
 
 Tableau-to-Go is a web application for creating and visualizing Ferrers diagrams interactively. The application allows users to click on boxes to fill them, calculate hook lengths, and display the corresponding partition and hookset. The layout is responsive and optimized for both desktop and mobile devices.
@@ -53,3 +55,28 @@ tableau-to-go/
 ├── server.js
 ├── package.json
 └── vercel.json
+```
+
+## Usage
+
+- **Drawing**: Click or tap on the boxes to fill them. The hook lengths will be displayed automatically.
+- **Color Picker**: Select a color from the color picker on the right side and use it to fill the boxes.
+- **Partition and Hookset Display**: Toggle the display of the partition and hookset using the buttons at the top.
+- **Clear Diagram**: Use the "Clear" button to reset the Ferrers diagram.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- Inspired by various mathematical visualization tools.
+- Special thanks to the contributors and open-source community.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Contact
+
+For any inquiries or feedback, please reach out to `your-email@example.com`.
