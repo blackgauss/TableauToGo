@@ -13,7 +13,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
 }
 
 #controls button {
@@ -21,6 +24,7 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    flex: 1 1 auto;
 }
 
 #content {
@@ -56,6 +60,8 @@ body {
     border-radius: 10px;
     margin: 10px;
     overflow: auto;
+    width: 100%;
+    max-width: 500px;
 }
 
 .row {
@@ -184,7 +190,7 @@ body {
     }
     
     #controls {
-        justify-content: center;
+        flex-direction: column;
     }
 
     #ferrers-diagram {
