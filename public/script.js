@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const ferrersDiagram = document.getElementById('ferrers-diagram');
+    const partitionDisplay = document.createElement('div');
+    partitionDisplay.id = 'partition-display';
+    document.body.appendChild(partitionDisplay);
 
     function createFerrersDiagram(rows, cols) {
         for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
@@ -8,16 +11,50 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let colIndex = 0; colIndex < cols; colIndex++) {
                 const box = document.createElement('div');
                 box.classList.add('box');
-                box.addEventListener('click', () => handleBoxClick(box));
+                box.addEventListener('click', () => handleBoxClick(box, rowIndex, colIndex));
                 row.appendChild(box);
             }
             ferrersDiagram.appendChild(row);
         }
     }
 
-    function handleBoxClick(box) {
-        box.classList.toggle('filled');
+    function handleBoxClick(box, rowIndex, colIndex) {
+        if (box.classList.contains('filled')) {
+            box.classList.remove('filled');
+        } else {
+            if (isConnected(rowIndex, colIndex)) {
+                box.classList.add('filled');
+            }
+        }
         calculateHookLengths();
+        updatePartitionDisplay();
+    }
+
+    function isConnected(rowIndex, colIndex) {
+        const rows = document.querySelectorAll('.row');
+        const directions = [
+            [-1, 0], // up
+            [1, 0],  // down
+            [0, -1], // left
+            [0, 1]   // right
+        ];
+
+        // If it's the first box to be filled, allow it
+        if (document.querySelectorAll('.box.filled').length === 0) {
+            return true;
+        }
+
+        for (let [dx, dy] of directions) {
+            const newRow = rowIndex + dx;
+            const newCol = colIndex + dy;
+            if (newRow >= 0 && newRow < rows.length && newCol >= 0 && newCol < rows[0].children.length) {
+                if (rows[newRow].children[newCol].classList.contains('filled')) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     function calculateHookLengths() {
@@ -54,6 +91,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         return hookLength;
+    }
+
+    function updatePartitionDisplay() {
+        const rows = document.querySelectorAll('.row');
+        let partition = [];
+
+        rows.forEach((row) => {
+            let count = 0;
+            row.querySelectorAll('.box.filled').forEach(() => {
+                count++;
+            });
+            if (count > 0) {
+                partition.push(count);
+            }
+        });
+
+        if (isValidPartition(partition)) {
+            partitionDisplay.innerHTML = '<h3>Partition:</h3>' + partition.join(' + ');
+        } else {
+            partitionDisplay.innerHTML = '<h3>Partition:</h3>Invalid Partition';
+        }
+    }
+
+    function isValidPartition(partition) {
+        for (let i = 1; i < partition.length; i++) {
+            if (partition[i] > partition[i - 1]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     createFerrersDiagram(10, 10); // Create a 10x10 grid
