@@ -11,12 +11,13 @@ body {
 
 #controls {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 #controls button {
-    margin-right: 10px;
+    margin: 5px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -26,14 +27,18 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
 }
 
 #sidebar {
-    margin-right: 20px;
+    margin: 10px;
 }
 
 #partition-display, #hookset-display {
-    width: 200px;
+    width: 100%;
+    max-width: 300px;
     background: white;
     padding: 10px;
     border-radius: 10px;
@@ -49,7 +54,8 @@ body {
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-right: 20px;
+    margin: 10px;
+    overflow: auto;
 }
 
 .row {
@@ -57,15 +63,15 @@ body {
 }
 
 .box {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     margin: 2px;
-    font-size: 14px;
+    font-size: 12px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -130,11 +136,12 @@ body {
 #color-picker {
     display: flex;
     flex-direction: column;
+    margin: 10px;
 }
 
 .color-box {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin: 5px 0;
     cursor: pointer;
     border: 1px solid #ddd;
@@ -167,4 +174,37 @@ body {
 
 .color-box.gray {
     background-color: #6c757d;
+}
+
+/* Mobile specific styles */
+@media (max-width: 768px) {
+    #content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #controls {
+        justify-content: center;
+    }
+
+    #ferrers-diagram {
+        width: 100%;
+    }
+    
+    .box {
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+    }
+
+    #color-picker {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .color-box {
+        width: 25px;
+        height: 25px;
+        margin: 5px;
+    }
 }

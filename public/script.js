@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function createFerrersDiagram(rows, cols) {
+        ferrersDiagram.innerHTML = ''; // Clear existing diagram
         for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
             const row = document.createElement('div');
             row.classList.add('row');
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const box = document.createElement('div');
                 box.classList.add('box');
                 box.addEventListener('click', () => handleBoxClick(box, rowIndex, colIndex));
+                box.addEventListener('touchstart', () => handleBoxClick(box, rowIndex, colIndex));
                 row.appendChild(box);
             }
             ferrersDiagram.appendChild(row);
