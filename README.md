@@ -54,7 +54,6 @@ tableau-to-go/
 │   └── index.ejs
 ├── server.js
 ├── package.json
-└── vercel.json
 ```
 
 ## Usage
@@ -70,13 +69,10 @@ This project is licensed under the MIT License.
 
 ## Acknowledgments
 
-- Inspired by various mathematical visualization tools.
-- Special thanks to the contributors and open-source community.
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Contact
 
-For any inquiries or feedback, please reach out to `your-email@example.com`.
+For any inquiries or feedback, please reach out to `eimathiucaltech@gmail.com`.
