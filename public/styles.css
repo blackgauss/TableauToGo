@@ -12,7 +12,7 @@ body {
 #controls {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #controls button {
