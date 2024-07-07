@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferrers Diagram</title>
+    <title>Interactive Ferrers Diagram</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div id="ferrers-diagram"></div>
+    <div id="controls">
+        <button id="clear-button">Clear</button>
+        <button id="toggle-partition-button">Partition</button>
+        <button id="toggle-hookset-button">Hookset</button>
+    </div>
+    <div id="content">
+        <div id="sidebar">
+            <div id="partition-display"></div>
+            <div id="hookset-display"></div>
+        </div>
+        <div id="ferrers-diagram"></div>
+        <div id="color-picker">
+            <div class="color-box blue"></div>
+            <div class="color-box red"></div>
+            <div class="color-box green"></div>
+            <div class="color-box orange"></div>
+            <div class="color-box black"></div>
+            <div class="color-box gray"></div>
+        </div>
+    </div>
     <script src="/script.js"></script>
 </body>
 </html>
