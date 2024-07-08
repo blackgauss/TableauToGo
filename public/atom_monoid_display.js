@@ -1,5 +1,9 @@
 import { calculateHookLength } from './hooks.js'; // Import calculateHookLength to use for the new drawing area
 
+/**
+ * Draws the atom partition diagram based on the given partition.
+ * @param {number[]} partition - An array representing the partition of the atom.
+ */
 export function drawAtomPartition(partition) {
     const atomDiagram = document.getElementById('atom-diagram');
     atomDiagram.innerHTML = ''; // Clear existing diagram
@@ -20,6 +24,9 @@ export function drawAtomPartition(partition) {
     calculateHookLengthsForAtomDiagram();
 }
 
+/**
+ * Calculates the hook lengths for the atom diagram.
+ */
 function calculateHookLengthsForAtomDiagram() {
     const rows = document.querySelectorAll('#atom-diagram .row');
     rows.forEach((row, rowIndex) => {

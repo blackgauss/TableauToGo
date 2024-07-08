@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const togglePartitionButton = document.getElementById('toggle-partition-button');
     const toggleHooksetButton = document.getElementById('toggle-hookset-button');
     const colorPicker = document.getElementById('color-picker');
+    /**
+     * Represents the button element for computing the atom monoid.
+     * @type {HTMLButtonElement}
+     */
     const computeAtomMonoidButton = document.getElementById('compute-atom-monoid-button');
 
     let currentColor = 'blue';

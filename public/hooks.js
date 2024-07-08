@@ -1,3 +1,6 @@
+/**
+ * Calculates the hook lengths for each filled box in the table.
+ */
 export function calculateHookLengths() {
     const rows = document.querySelectorAll('.row');
     rows.forEach((row, rowIndex) => {
@@ -13,6 +16,14 @@ export function calculateHookLengths() {
     });
 }
 
+/**
+ * Calculates the length of a hook starting from a given row and column index.
+ * A hook is defined as a consecutive series of filled cells to the right and downwards.
+ * @param {Array} rows - The array of rows containing the cells.
+ * @param {number} rowIndex - The index of the starting row.
+ * @param {number} colIndex - The index of the starting column.
+ * @returns {number} - The length of the hook.
+ */
 export function calculateHookLength(rows, rowIndex, colIndex) {
     let hookLength = 1;
     // Count to the right
@@ -34,6 +45,9 @@ export function calculateHookLength(rows, rowIndex, colIndex) {
     return hookLength;
 }
 
+/**
+ * Updates the hookset display by collecting the values from the filled boxes and sorting them.
+ */
 export function updateHooksetDisplay() {
     const rows = document.querySelectorAll('.row');
     let hookset = new Set();
@@ -50,6 +64,10 @@ export function updateHooksetDisplay() {
     document.getElementById('hookset-display').innerHTML = '<h3>Hookset:</h3>' + Array.from(hookset).sort((a, b) => a - b).join(', ');
 }
 
+/**
+ * Extracts the unique values from the filled boxes in the table.
+ * @returns {number[]} An array of unique values extracted from the filled boxes.
+ */
 export function extractHookset() {
     const rows = document.querySelectorAll('.row');
     let hookset = new Set();

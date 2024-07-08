@@ -16,6 +16,9 @@ export function toggleHooksetDisplay() {
     }
 }
 
+/**
+ * Updates the partition display based on the filled boxes in the table.
+ */
 export function updatePartitionDisplay() {
     const rows = Array.from(document.querySelectorAll('.row'));
     let partition = [];

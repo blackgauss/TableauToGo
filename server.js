@@ -9,6 +9,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/docs', express.static(path.join(__dirname, 'docs'))); // Serve the docs directory
 
 // Serve index.ejs as the landing page
 app.get('/', (req, res) => {

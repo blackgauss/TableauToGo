@@ -1,3 +1,8 @@
+/**
+ * Computes the atom monoid partition for a given hookset.
+ * @param {number[]} hookset - The hookset to compute the atom monoid partition for.
+ * @returns {number[]} - The atom monoid partition.
+ */
 export function computeAtomMonoidPartition(hookset) {
     if (hookset.length === 0) return [];
 
