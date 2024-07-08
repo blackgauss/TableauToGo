@@ -1,6 +1,6 @@
 import { createFerrersDiagram, clearFerrersDiagram } from './diagram.js';
 import { togglePartitionDisplay, toggleHooksetDisplay } from './partition.js';
-import { computeAtomMonoid } from './atom_monoid.js';
+import { computeAndDisplayAtomMonoid } from './atom_monoid.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const ferrersDiagram = document.getElementById('ferrers-diagram');
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clearButton.addEventListener('click', () => clearFerrersDiagram(ferrersDiagram));
     togglePartitionButton.addEventListener('click', togglePartitionDisplay);
     toggleHooksetButton.addEventListener('click', toggleHooksetDisplay);
-    computeAtomMonoidButton.addEventListener('click', () => computeAtomMonoid());
+    computeAtomMonoidButton.addEventListener('click', () => computeAndDisplayAtomMonoid());
 
     colorPicker.addEventListener('click', (event) => {
         if (event.target.classList.contains('color-box')) {
