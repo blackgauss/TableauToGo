@@ -214,3 +214,9 @@ body {
         margin: 5px;
     }
 }
+
+
+/* Add styles for atom boxes */
+.atom-box {
+    background-color: green !important; /* Ensure atom boxes are green */
+}

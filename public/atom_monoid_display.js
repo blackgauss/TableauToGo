@@ -13,7 +13,7 @@ export function drawAtomPartition(partition) {
         row.classList.add('row');
         for (let colIndex = 0; colIndex < rowLength; colIndex++) {
             const box = document.createElement('div');
-            box.classList.add('box', 'filled'); // Mark as filled for styling purposes
+            box.classList.add('box', 'filled', 'atom-box'); // Mark as filled and as an atom box for styling purposes
             box.textContent = ''; // Placeholder for hook length
             row.appendChild(box);
         }
