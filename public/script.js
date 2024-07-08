@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentColor = 'blue';
     let isTouchDevice = 'ontouchstart' in document.documentElement;
 
-    // Create initial diagram
-    createFerrersDiagram(ferrersDiagram, isTouchDevice, currentColor, parseInt(gridSizeSelector.value));
+    // Create initial diagram with default size 5x5
+    createFerrersDiagram(ferrersDiagram, isTouchDevice, currentColor, 5);
 
     // Handle grid size changes
     gridSizeSelector.addEventListener('change', () => {

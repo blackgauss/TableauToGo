@@ -54,19 +54,18 @@ body {
 
 #sidebar {
     margin: 10px;
-}
-
-#partition-display, #hookset-display {
-    width: 100%;
     max-width: 300px;
     background: white;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#partition-display, #hookset-display, #atom-partition-display {
     margin-bottom: 20px;
 }
 
-#ferrers-diagram {
+#ferrers-diagram, #atom-diagram {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -76,8 +75,8 @@ body {
     border-radius: 10px;
     margin: 10px;
     overflow: auto;
-    width: 100%;
-    max-width: 500px;
+    width: 160px; /* Adjust to fit exactly around the 5x5 grid */
+    height: 160px; /* Adjust to fit exactly around the 5x5 grid */
 }
 
 .row {
@@ -199,20 +198,33 @@ body {
 }
 
 /* Mobile specific styles */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: landscape) {
     #content {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    #controls {
-        flex-direction: column;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
     }
 
     #ferrers-diagram {
-        width: 100%;
+        width: 50%;
+        height: auto;
+        max-width: none;
+    }
+
+    #atom-diagram {
+        width: 50%;
+        height: auto;
+        max-width: none;
     }
     
+    #controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
     .box {
         width: 25px;
         height: 25px;
@@ -231,8 +243,9 @@ body {
     }
 
     #compute-atom-monoid-button {
-        order: 1; /* Move the button to the bottom */
-        width: 100%;
+        position: absolute;
+        bottom: 10px;
+        width: calc(100% - 40px); /* Ensure it spans almost the full width */
         max-width: 500px;
     }
 }
