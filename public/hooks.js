@@ -47,5 +47,21 @@ export function updateHooksetDisplay() {
         }
     });
 
-    hooksetDisplay.innerHTML = '<h3>Hookset:</h3>' + Array.from(hookset).sort((a, b) => a - b).join(', ');
+    document.getElementById('hookset-display').innerHTML = '<h3>Hookset:</h3>' + Array.from(hookset).sort((a, b) => a - b).join(', ');
+}
+
+export function extractHookset() {
+    const rows = document.querySelectorAll('.row');
+    let hookset = new Set();
+
+    rows.forEach((row) => {
+        const boxes = row.children;
+        for (let colIndex = 0; colIndex < boxes.length; colIndex++) {
+            if (boxes[colIndex].classList.contains('filled')) {
+                hookset.add(parseInt(boxes[colIndex].textContent));
+            }
+        }
+    });
+
+    return Array.from(hookset);
 }

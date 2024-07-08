@@ -1,5 +1,5 @@
 import { calculateHookLengths, updateHooksetDisplay } from './hooks.js';
-import { updatePartitionDisplay, updateAtomMonoidPartition } from './partition.js';
+import { updatePartitionDisplay } from './partition.js';
 
 export function createFerrersDiagram(ferrersDiagram, isTouchDevice, currentColor) {
     ferrersDiagram.innerHTML = ''; // Clear existing diagram
@@ -34,7 +34,6 @@ export function handleBoxClick(box, rowIndex, colIndex, currentColor) {
     calculateHookLengths();
     updatePartitionDisplay();
     updateHooksetDisplay();
-    updateAtomMonoidPartition();
 }
 
 export function isConnected(rowIndex, colIndex) {
@@ -72,6 +71,6 @@ export function clearFerrersDiagram(ferrersDiagram) {
             box.textContent = '';
         });
     });
-    partitionDisplay.innerHTML = '<h3>Partition:</h3>';
-    hooksetDisplay.innerHTML = '<h3>Hookset:</h3>';
+    document.getElementById('partition-display').innerHTML = '<h3>Partition:</h3>';
+    document.getElementById('hookset-display').innerHTML = '<h3>Hookset:</h3>';
 }
