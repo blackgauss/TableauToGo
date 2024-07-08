@@ -79,8 +79,6 @@ body {
     border-radius: 10px;
     margin: 10px;
     overflow: auto;
-    width: 180px; /* Adjust to fit slightly larger than the 5x5 grid */
-    height: 180px; /* Adjust to fit slightly larger than the 5x5 grid */
 }
 
 .row {
@@ -247,10 +245,9 @@ body {
     }
 
     #compute-atom-monoid-button {
-        position: absolute;
-        bottom: 10px;
         width: calc(100% - 40px); /* Ensure it spans almost the full width */
         max-width: 500px;
+        margin: 10px auto;
     }
 }
 

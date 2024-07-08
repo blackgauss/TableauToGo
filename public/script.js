@@ -13,14 +13,26 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentColor = 'blue';
     let isTouchDevice = 'ontouchstart' in document.documentElement;
 
+    // Function to set bounding box size
+    function setBoundingBoxSize(gridSize) {
+        const boxSize = 34; // 30px box + 2px margin on each side
+        const diagramSize = boxSize * gridSize + 20; // Adjust for padding
+        ferrersDiagram.style.width = `${diagramSize}px`;
+        ferrersDiagram.style.height = `${diagramSize}px`;
+        document.getElementById('atom-diagram').style.width = `${diagramSize}px`;
+        document.getElementById('atom-diagram').style.height = `${diagramSize}px`;
+    }
+
     // Create initial diagram with default size 5x5
     createFerrersDiagram(ferrersDiagram, isTouchDevice, currentColor, 5);
+    setBoundingBoxSize(5);
 
     // Handle grid size changes
     gridSizeSelector.addEventListener('change', () => {
         const newSize = parseInt(gridSizeSelector.value);
         clearFerrersDiagram(ferrersDiagram);
         createFerrersDiagram(ferrersDiagram, isTouchDevice, currentColor, newSize);
+        setBoundingBoxSize(newSize);
     });
 
     // Handle clear button
