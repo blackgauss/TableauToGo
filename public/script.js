@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleInfoButton = document.getElementById('toggle-info-button');
     const controls = document.getElementById('controls');
     const sidebar = document.getElementById('sidebar');
+    const atomDiagram = document.getElementById('atom-diagram');
     let currentColor = 'blue';
     let isTouchDevice = 'ontouchstart' in document.documentElement;
 
@@ -19,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const diagramSize = boxSize * gridSize + 20; // Adjust for padding
         ferrersDiagram.style.width = `${diagramSize}px`;
         ferrersDiagram.style.height = `${diagramSize}px`;
-        document.getElementById('atom-diagram').style.width = `${diagramSize}px`;
-        document.getElementById('atom-diagram').style.height = `${diagramSize}px`;
+        atomDiagram.style.width = `${diagramSize}px`;
+        atomDiagram.style.height = `${diagramSize}px`;
     }
 
     // Create initial diagram with default size 5x5
@@ -38,10 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle clear button
     clearButton.addEventListener('click', () => {
         clearFerrersDiagram(ferrersDiagram);
+        atomDiagram.innerHTML = ''; // Clear atom diagram
     });
 
     // Handle compute atom monoid button
     computeAtomMonoidButton.addEventListener('click', () => {
+        atomDiagram.innerHTML = ''; // Clear atom diagram
         computeAndDisplayAtomMonoid();
     });
 

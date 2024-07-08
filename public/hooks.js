@@ -26,6 +26,7 @@ export function calculateHookLengths() {
  */
 export function calculateHookLength(rows, rowIndex, colIndex) {
     let hookLength = 1;
+    
     // Count to the right
     for (let i = colIndex + 1; i < rows[rowIndex].children.length; i++) {
         if (rows[rowIndex].children[i].classList.contains('filled')) {
@@ -34,6 +35,7 @@ export function calculateHookLength(rows, rowIndex, colIndex) {
             break;
         }
     }
+    
     // Count downwards
     for (let i = rowIndex + 1; i < rows.length; i++) {
         if (rows[i].children[colIndex].classList.contains('filled')) {
@@ -42,6 +44,7 @@ export function calculateHookLength(rows, rowIndex, colIndex) {
             break;
         }
     }
+    
     return hookLength;
 }
 
