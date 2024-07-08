@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearButton = document.getElementById('clear-button');
     const computeAtomMonoidButton = document.getElementById('compute-atom-monoid-button');
     const settingsIcon = document.getElementById('settings-icon');
+    const toggleInfoButton = document.getElementById('toggle-info-button');
     const controls = document.getElementById('controls');
+    const sidebar = document.getElementById('sidebar');
     let currentColor = 'blue';
     let isTouchDevice = 'ontouchstart' in document.documentElement;
 
@@ -41,5 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle settings icon click
     settingsIcon.addEventListener('click', () => {
         controls.classList.toggle('hidden');
+    });
+
+    // Handle info toggle button
+    toggleInfoButton.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
     });
 });

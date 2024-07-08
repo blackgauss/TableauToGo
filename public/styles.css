@@ -61,6 +61,10 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+#sidebar.hidden {
+    display: none;
+}
+
 #partition-display, #hookset-display, #atom-partition-display {
     margin-bottom: 20px;
 }
@@ -75,8 +79,8 @@ body {
     border-radius: 10px;
     margin: 10px;
     overflow: auto;
-    width: 160px; /* Adjust to fit exactly around the 5x5 grid */
-    height: 160px; /* Adjust to fit exactly around the 5x5 grid */
+    width: 180px; /* Adjust to fit slightly larger than the 5x5 grid */
+    height: 180px; /* Adjust to fit slightly larger than the 5x5 grid */
 }
 
 .row {
