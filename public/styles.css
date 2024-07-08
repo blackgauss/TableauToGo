@@ -9,6 +9,18 @@ body {
     background-color: #f5f5f5;
 }
 
+#settings-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#settings-icon img {
+    width: 30px;
+    height: 30px;
+}
+
 #controls {
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +31,11 @@ body {
     text-align: center;
 }
 
-#controls button {
+#controls.hidden {
+    display: none;
+}
+
+#controls button, #controls select {
     margin: 5px;
     padding: 10px 20px;
     font-size: 16px;
@@ -213,8 +229,13 @@ body {
         height: 25px;
         margin: 5px;
     }
-}
 
+    #compute-atom-monoid-button {
+        order: 1; /* Move the button to the bottom */
+        width: 100%;
+        max-width: 500px;
+    }
+}
 
 /* Add styles for atom boxes */
 .atom-box {

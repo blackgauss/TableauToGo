@@ -6,13 +6,14 @@ import { updatePartitionDisplay } from './partition.js';
  * @param {HTMLElement} ferrersDiagram - The element to which the Ferrers diagram will be appended.
  * @param {boolean} isTouchDevice - Indicates whether the device is a touch device.
  * @param {string} currentColor - The color to be used for the boxes in the diagram.
+ * @param {number} gridSize - The size of the grid (e.g., 10 for a 10x10 grid).
  */
-export function createFerrersDiagram(ferrersDiagram, isTouchDevice, currentColor) {
+export function createFerrersDiagram(ferrersDiagram, isTouchDevice, currentColor, gridSize) {
     ferrersDiagram.innerHTML = ''; // Clear existing diagram
-    for (let rowIndex = 0; rowIndex < 10; rowIndex++) {
+    for (let rowIndex = 0; rowIndex < gridSize; rowIndex++) {
         const row = document.createElement('div');
         row.classList.add('row');
-        for (let colIndex = 0; colIndex < 10; colIndex++) {
+        for (let colIndex = 0; colIndex < gridSize; colIndex++) {
             const box = document.createElement('div');
             box.classList.add('box');
             if (isTouchDevice) {

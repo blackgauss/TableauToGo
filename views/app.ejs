@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <div id="controls">
+    <div id="settings-icon">
+        <img src="settings-icon.png" alt="Settings"> <!-- Use an appropriate settings icon image -->
+    </div>
+    <div id="controls" class="hidden">
         <button id="clear-button">Clear</button>
         <button id="toggle-partition-button">Partition</button>
         <button id="toggle-hookset-button">Hookset</button>
-        <button id="compute-atom-monoid-button">Compute Atom Monoid</button>
+        <select id="grid-size-selector">
+            <option value="5" selected>5x5</option>
+            <option value="10">10x10</option>
+            <option value="15">15x15</option>
+            <option value="20">20x20</option>
+        </select>
     </div>
     <div id="content">
         <div id="sidebar">
@@ -30,6 +38,7 @@
             <div class="color-box gray"></div>
         </div>
     </div>
+    <button id="compute-atom-monoid-button">Atom</button>
     <script type="module" src="/diagram.js"></script>
     <script type="module" src="/hooks.js"></script>
     <script type="module" src="/partition.js"></script>
